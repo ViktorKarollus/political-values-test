@@ -8,8 +8,50 @@
     <title>Document</title>
 </head>
 <body>
+
+<div id="start-screen">
 <h1>Politik-Test</h1>
-<h2>sadffsa</h2>
-<button id="button">test</button>
+<p>Find out what your political values are</p>
+<button id="start-btn">Start test</button>
+</div>
+
+<div id="quiz-screen" hidden>
+<div id="progress"></div>
+<h2 id="question"></h2>
+<div id="answers">
+<div>
+  <input type="radio" name="answer" id="sd" value="-2">
+  <label for="sd">Strongly Disagree</label>
+</div>
+
+<div>
+  <input type="radio" name="answer" id="d" value="-1">
+  <label for="d">Disagree</label>
+</div>
+
+<div>
+  <input type="radio" name="answer" id="n" value="0">
+  <label for="n">Neutral</label>
+</div>
+
+<div>
+  <input type="radio" name="answer" id="a" value="1">
+  <label for="a">Agree</label>
+</div>
+
+<div>
+  <input type="radio" name="answer" id="sa" value="2">
+  <label for="sa">Strongly Agree</label>
+</div>
+</div>
+<div id="navigation">
+<button id="back-btn">Zurück</button>
+<button id="next-btn">Weiter</button>
+</div>
+</div>
+
+<div id="result-screen" hidden>
+  ...
+</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 import { questions } from "./questions.js";
 //function starts the test hides the startScreen and shows the quiz screen.
 let currentQuestion=0;
+let answerValues=[];
 export function teststart(){
 const startScreen=document.getElementById("start-screen");
 const quizScreen=document.getElementById("quiz-screen");
@@ -15,6 +16,7 @@ const backButton=document.getElementById("back-btn");
 const nextButton=document.getElementById("next-btn");
 const questionHolder=document.getElementById("question");
 questionHolder.textContent=questions[currentQuestion].text;
+getRadio(currentQuestion);
 if(currentQuestion<questions.length-1){
 nextButton.disabled=false;
 }else{
@@ -25,6 +27,7 @@ backButton.disabled=true;
 }else{
 backButton.disabled=false;
 }
+console.log(answerValues);
 }
 
 export function nextQuestion(){
@@ -46,6 +49,22 @@ const selectedAnswer = document.querySelector(
 if(selectedAnswer==null){
     return false;
 }else{
+answerValues[currentQuestion]=Number(selectedAnswer.value);
 return true;
+}
+}
+// resets all radio buttons and restores the saved answer for the current question
+function getRadio(currentQuestion){
+const radios=document.querySelectorAll('input[name="answer"]');
+radios.forEach(radio => {
+radio.checked=false;
+});
+const answerValue=answerValues[currentQuestion];
+if(answerValue!=null){
+radios.forEach(radio => {
+if(answerValue===Number(radio.value)){
+radio.checked=true;
+}
+});
 }
 }
